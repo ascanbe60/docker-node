@@ -1,0 +1,17 @@
+version: "3"
+services:
+  web:
+    # The location of the docker file
+    build: .
+    # The port-forwarding configuration
+    ports:
+      - "8080:8080"
+    db:
+      image: "mysql"
+      environment:
+        MYSQL_ROOT_PASSWORD: password
+      volumes:
+        - db-data:/foo
+
+volumes:
+  db-data:
